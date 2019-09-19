@@ -1,0 +1,74 @@
+#include"Node.cpp"
+class List
+{
+	int size;
+	Node*head,*current;
+	public:
+		List()
+		{
+			size=0;
+			head=new Node();
+			current=head;
+		}
+		add(int value)
+		{
+			Node*new_node=new Node();
+			new_node->set_value(value);
+				new_node->set_next(current->get_next());
+				new_node->set_pre(current);
+				if(current->get_next()!=NULL)
+				current->get_next()->set_pre(new_node);
+				current->set_next(new_node);
+				if(current=head)
+				current->set_pre(NULL);
+				current=new_node;
+			size++;
+		}
+		start()
+		{
+			if(size!=0)
+			{
+				current=head->get_next();
+			}
+		}
+		next()
+		{
+			if(size!=0&&current->get_next()!=NULL)
+			{
+				current=current->get_next();
+			}
+		}
+		pre()
+		{
+			if(size!=0&&current->get_pre()!=head)
+			{
+				current=current->get_pre();
+			}
+		}
+		remove()
+		{
+			if(size!=0)
+			{
+				if(current->get_next()!=NULL)
+				{
+					current->get_next()->set_pre(current->get_pre());
+					current->get_pre()->set_next(NULL);
+					current->get_pre()->set_next(current->get_next());
+					current=current->get_next();
+				}
+				else
+				{
+					current=current->get_pre();
+					current->set_next(NULL);
+				}
+				size--;
+			}
+		}
+		get()
+		{
+			cout<<"pre="<<current->get_pre()->get_value()<<endl;
+			cout<<"Current="<<current->get_value()<<endl;
+			if(current->get_next()!=NULL)
+			cout<<"next="<<current->get_next()->get_value()<<endl;
+		}
+};

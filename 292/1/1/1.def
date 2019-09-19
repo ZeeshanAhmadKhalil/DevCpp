@@ -1,0 +1,10 @@
+; 1.def : Declares the module parameters.
+
+LIBRARY      "1.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE

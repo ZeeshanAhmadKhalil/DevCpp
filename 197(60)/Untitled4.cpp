@@ -1,0 +1,30 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+main()
+{
+	int a,*b,**c,***d,****e,*****f,******g,*******h,********i,*********j,**********k;
+	cout<<"a=";
+	cin>>a;
+	b=&a;
+	c=&b;
+	d=&c;
+	e=&d;
+	f=&e;
+	g=&f;
+	h=&g;
+	i=&h;
+	j=&i;
+	k=&j;
+	cout<<**********k<<endl;
+	cout<<*********k<<endl;
+	cout<<********k<<endl;
+	cout<<*******k<<endl;
+	cout<<******k<<endl;
+	cout<<*****k<<endl;
+	cout<<****k<<endl;
+	cout<<***k<<endl;
+	cout<<**k<<endl;
+	cout<<*k<<endl;
+	cout<<k<<endl;
+}

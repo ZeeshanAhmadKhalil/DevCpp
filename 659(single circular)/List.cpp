@@ -1,0 +1,101 @@
+#include"Node.cpp"
+class List
+{
+	int size;
+	Node*current;
+	Node*head;
+	public:
+		List()
+		{
+			size=0;
+			head=new Node();
+			current=head;
+		}
+		add(int value)
+		{
+			Node*new_node=new Node();
+			new_node->set_value(value);
+			if(size==0)
+			{
+				current=new_node;
+				new_node->set_next(NULL);
+				new_node->set_previous(head);
+				head->set_next(new_node);
+				head->set_previous(NULL);
+			}
+			else
+			{
+				new_node->set_next(current->get_next());
+				new_node->set_previous(current);
+				if(current->get_next()!=NULL)
+				current->get_next()->set_previous(new_node);
+				current->set_next(new_node);
+				current=new_node;
+			}
+			size++;
+		}
+		start()
+		{
+			if(size!=0)
+			{
+				current=head->get_next();
+			}
+		}
+		next()
+		{
+			if(size!=0&&current->get_next()!=NULL)
+			{
+				current=current->get_next();
+			}
+		}
+		back()
+		{
+			if(size!=0&&current->get_previous()!=NULL)
+			{
+				current=current->get_previous();
+			}
+		}
+		remove()
+		{
+			if(size!=0)
+			{
+				Node*n;
+				n==current;
+				if(current->get_next()!=NULL)
+				{
+					current->get_next()->set_previous(current->get_previous());
+					current->get_previous()->set_next(current->get_next());
+					current=current->get_next();
+				}
+				else
+				{
+					current=current->get_previous();
+					current->set_next(NULL);
+				}				
+				n=NULL;
+			}
+			size--;
+		}
+		find(int value)
+		{
+			Node*c;
+			c=current;
+			start();
+			for(int i=1;i<=size;i++)
+			{
+				if(current->get_value()==value)
+				cout<<"Found";
+				if(current->get_next()!=NULL)
+				current=current->get_next();
+			}
+			current=c;
+		}
+		show()
+		{
+			cout<<"pre="<<current->get_previous()->get_value()<<endl;
+			cout<<"Current="<<current->get_value()<<endl;
+			if(current->get_next()!=NULL)
+			cout<<"next="<<current->get_next()->get_value()<<endl;
+			cout<<"Size="<<size<<endl;
+		}
+};

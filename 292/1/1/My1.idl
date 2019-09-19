@@ -1,0 +1,18 @@
+// My1.idl : IDL source for 1
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (My1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(7BF275C0-D5FD-49E5-9216-D2C7D69C707B),
+	version(1.0),
+	helpstring("My1 1.0 Type Library")
+]
+library My1Lib
+{
+	importlib("stdole2.tlb");
+};
